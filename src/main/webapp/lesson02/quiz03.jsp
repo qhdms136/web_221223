@@ -12,7 +12,7 @@
 <body>
 	<div class="container">
 		<h1>체격 조건 입력</h1>
-		<form>
+		<form action="/lesson02/quiz03_1.jsp">
 			<div class="d-flex align-items-end">
 				<input type="text" name="height" id="height" class="form-control col-3 mx-3" placeholder="키를 입력하세요.">
 				cm
