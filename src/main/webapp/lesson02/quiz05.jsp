@@ -4,41 +4,30 @@
 <html>
 <head>
 <meta charset="UTF-8">
-	<!-- bootstrap CDN link -->
+<!-- bootstrap CDN link -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-<title>BMI 계산</title>
+<title>길이 변환</title>
 </head>
 <body>
-	<%
-	int height = Integer.parseInt(request.getParameter("height"));
-	int weight = Integer.parseInt(request.getParameter("weight"));
-	
-	double bmi = weight / ((height / 100.0) * (height / 100.0));
-	
-	String result;
-	if (bmi <= 20) {
-		result = "저체중";
-	} else if (bmi <= 25) {
-		result = "정상";
-	} else if (bmi <= 30) {
-		result = "과체중";
-	} else {
-		result = "비만";
-	}
-%>
-
-	<div class="container"> 
-		<h1>BMI 측정 결과</h1>
-		
-		<div class="display-4"> 당신은 <span class="text-info"><%=result %></span> 입니다. </div>
-		
-		<div class="mt-2">
-			BMI 수치 : <%=bmi %>
+	<div class="container">
+		<form action="/lesson02/quiz05_1.jsp" method="post">
+		<h1>길이 변환</h1>
+		<div class="d-flex align-items-end">
+			<input type="text" name="number" class="form-control col-3 mr-2">
+			<span>cm</span>
 		</div>
+		<div class="mt-2">
+			<label class="mr-2">인치</label><input type="checkbox" name="unit" value="인치" class="mr-2">
+			<label class="mr-2">야드</label><input type="checkbox" name="unit" value="야드" class="mr-2">
+			<label class="mr-2">피트</label><input type="checkbox" name="unit" value="피트" class="mr-2">
+			<label class="mr-2">미터</label><input type="checkbox" name="unit" value="미터" class="mr-2"><br>
+			<button type="submit" class="btn btn-success">변환하기</button>
+		</div>
+		</form>
 	</div>
 </body>
 </html>
