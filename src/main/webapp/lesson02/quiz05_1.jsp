@@ -25,23 +25,29 @@
 			for(int i = 0; i < unitArr.length; i++){
 				if (unitArr[i].equals("인치")){
 					result = number * 0.393701;
-					list.add(String.valueOf(result));
+					list.add(String.valueOf(result + " in"));
 				} else if (unitArr[i].equals("야드")){
 					result = number * 0.010936;
-					list.add(String.valueOf(result));
+					list.add(String.valueOf(result + " yd"));
 				} else if (unitArr[i].equals("피트")){
 					result = number * 0.032808;
-					list.add(String.valueOf(result));
+					list.add(String.valueOf(result + " ft"));
 				} else if (unitArr[i].equals("미터")){
 					result = number * 0.01;
-					list.add(String.valueOf(result));
+					list.add(String.valueOf(result + " m"));
 				} else{}
 			}
 		}
 	%>
 	<h1>길이 변환 결과</h1>
-	<h3><%= cm %>cm</h3>
+	<h3><%= number %>cm</h3>
 	<hr>
-	<%=list %>
+	<h3>
+		<% 
+			for(int i = 0; i < list.size(); i++){
+				out.println(list.get(i)+ "<br>");
+			}
+		%>
+	</h3>
 </body>
 </html>
