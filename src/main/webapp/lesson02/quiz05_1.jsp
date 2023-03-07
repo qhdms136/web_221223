@@ -14,13 +14,13 @@
 <title>길이 변환</title>
 </head>
 <body>
-	<%
-		int number = Integer.parseInt(request.getParameter("number"));
+	<%-- <%
+		//nt number = Integer.parseInt(request.getParameter("number"));
 	
 		// checkbox처럼 여러 파라미터가 넘어올 때 getParamterValues
-		String[] unitArr = request.getParameterValues("unit");
-		ArrayList<String> list = new ArrayList<>();
-		if(unitArr != null){
+		//String[] unitArr = request.getParameterValues("unit");
+		// ArrayList<String> list = new ArrayList<>();
+		/* if(unitArr != null){
 			double result = 0;
 			for(int i = 0; i < unitArr.length; i++){
 				if (unitArr[i].equals("인치")){
@@ -37,7 +37,7 @@
 					list.add(String.valueOf(result + " m"));
 				} else{}
 			}
-		}
+		} */
 	%>
 	<h1>길이 변환 결과</h1>
 	<h3><%= number %>cm</h3>
@@ -48,6 +48,39 @@
 				out.println(list.get(i)+ "<br>");
 			}
 		%>
-	</h3>
+		
+	</h3> --%>
+	<%
+	int cm = Integer.parseInt(request.getParameter("length"));
+
+	// checkbox같은 여러 파라미터를 받아올 때
+	String[] types = request.getParameterValues("type");
+	%>
+
+	<div class="container">
+		<h1>길이 변환 결과</h1>
+		
+		<h3><%=cm%>cm</h3>
+		<hr>
+		<h2>
+		<%
+			for (String type : types) {
+				if (type.equals("inch")) {
+					double inch = cm * 0.39;
+					out.print(inch + " in <br>");
+				} else if (type.equals("yard")) {
+					double yard = cm * 0.010936133;
+					out.print(yard + " yd <br>");
+				} else if (type.equals("feet")) {
+					double feet = cm * 0.032808399;
+					out.print(feet + " ft <br>");
+				} else if (type.equals("meter")) {
+					double meter = cm / 100.0;
+					out.print(meter + " m <br>");
+				}
+			}
+		%>
+		</h2>
+	</div>
 </body>
 </html>
