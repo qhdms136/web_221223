@@ -59,32 +59,51 @@
     };
     list.add(map);		
 	%>
-	<div class="container">
-		<table class="table-borderless">
+	<%-- <div class="container">
+		<div class="d-flex">
 		<%
 			int idnumber = Integer.valueOf(request.getParameter("id"));
 			for(Map<String, Object> book : list) {
 				if((int)book.get("id") == idnumber){
 		%>
-			<tr>
-				<td rowspan="3"><image src="<%= book.get("image") %>" width=300 height=450></td>
-				<td><h1 class="display-2 fw-bold"><%= book.get("title") %></h1></td>
-			</tr>
-			<tr>
-				
-				<td><span class="display-2 text-info"><%= book.get("author") %></span></td>
-			</tr>
-			<tr>
-				
-				<td><span class="display-4 text-secondary"><%= book.get("publisher") %></span></td>
-			</tr>
+			
+				<div><image src="<%= book.get("image") %>" width=300 alt="표지"></div>
+					<div>
+						<div class="display-1 font-weight-bold"><%= book.get("title") %><div>
+						<div class="display-2 text-info"><%= book.get("author") %></div>
+						<div class="display-4 text-secondary"><%= book.get("publisher") %></div>
+					</div>		
 		<%
 				} else{
 					continue;
 				}
 			}
 		%>			
-		</table>
+		</div>
+	</div> --%>
+	<%
+		// 정답 풀이
+		// 테이블에 보여줄 책정보(target) 뽑아내기
+		int id = Integer.parseInt(request.getParameter("id"));
+		Map<String, Object> target = new HashMap<>();
+		for (Map<String, Object> item : list) {
+			if ((Integer) item.get("id") == id) {
+				target = item;
+				break;
+			}
+		}
+	%>
+	<div class="container">
+		<div class="d-flex">
+			<div>
+				<img src="<%=target.get("image") %>" width="300">
+			</div>
+			<div class="ml-3">
+				<span class="display-1 font-weight-bold d-block"><%=target.get("title") %></span>
+				<span class="display-3 text-info d-block"><%=target.get("author") %></span>
+				<span class="display-4 text-secondary d-block"><%=target.get("publisher") %></span>
+			</div>
+		</div>
 	</div>
 </body>
 </html>
