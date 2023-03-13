@@ -20,7 +20,7 @@
 		MysqlService ms = MysqlService.getInstance();
 		ms.connect();
 		
-		String selectQuery = "select `name`, `url` from `site`";
+		String selectQuery = "select * from `site`";
 		ResultSet res = ms.select(selectQuery);
 		
 	%>
@@ -38,8 +38,8 @@
 				%>
 					<tr>
 						<td><%= res.getString("name") %></td>
-						<td><a href="#"><%= res.getString("url") %></a></td>
-						<td><a href="/lesson04/delete_quiz02">삭제</a></td>
+						<td><a href="<%= res.getString("url")%>"><%= res.getString("url") %></a></td>
+						<td><a href="/lesson04/delete_quiz02?id=<%= res.getInt("id")%>">삭제</a></td>
 					</tr>
 				<%
 					}
