@@ -16,7 +16,11 @@
   	nav{height:60px;background-color:#FF7F50;}
   	.menu{font-size:22px;}
   	.menu a{color:#ffffff; font-weight:bold;}
-  	.contents{height:600px;}
+  	.menu a:hover{color:#B2EBF4;}
+  	.content-list{gap:20px 20px; padding-top:10px;}
+  	.list-box{padding:12px; width:350px;height:310px;border: 2px solid #FF7F50;}
+  	.title-text{font-size:14px;font-weight:bold;}
+  	.nickname{color:#FF7F50}
   	footer{height:50px;}
   </style>
 </head>
