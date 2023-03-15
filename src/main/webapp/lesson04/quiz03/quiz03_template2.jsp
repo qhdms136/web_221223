@@ -23,6 +23,7 @@
   	.list-box{padding:12px; width:350px;height:310px;border: 2px solid #FF7F50;}
   	.list-box:hover{background-color:#B2EBF4;}
   	.title-text{font-size:14px;font-weight:bold;}
+  	.insert-box{padding-top:50px;padding-left:50px;}
   	.nickname{color:#FF7F50}
   	footer{height:80px;}
   </style>
@@ -32,7 +33,7 @@
 			<jsp:include page="header.jsp"/>
 			<jsp:include page="menu.jsp"/>
 			<div class="contents bg-info">
-				<jsp:include page="content_list.jsp"/>
+				<jsp:include page="content_insert.jsp"/>
 			</div>		
 			<jsp:include page="footer.jsp"/>
 	</div>

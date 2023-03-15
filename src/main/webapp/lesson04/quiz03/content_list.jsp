@@ -21,7 +21,15 @@
 		while(res.next()){
 	%>
 		<article class="list-box">
-			<img src="<%=res.getString("picture") %>" alt="<%= res.getString("title")%>" width="320">
+			<div class="img-box d-flex align-items-center justify-content-center">
+			<%if(res.getString("picture") != null){ %>
+				<img src="<%=res.getString("picture") %>" alt="<%= res.getString("title")%>" width="320">
+				<%} else {%>
+				<h2 class="text-secondary">이미지 없음</h2>
+				<% 
+					}
+				%>
+			</div>
 			<div class="title-text mt-2"><%= res.getString("title") %></div>
 			<div class="text-secondary"><%= res.getInt("price") %>원</div>
 			<div class="nickname"><%= res.getString("nickname") %></div>
