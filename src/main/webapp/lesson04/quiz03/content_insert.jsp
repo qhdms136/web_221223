@@ -14,12 +14,17 @@
 				String selectQuery = "select * from `seller`;";
 				ResultSet res = ms.select(selectQuery);
 				
-				while(res.next()){
 			%>	
 				<select name="id">
-					<option value="<%= res.getInt("id")%>"></option>
+					<option value="아이디선택">-아이디 선택-</option>
+				<%
+				while(res.next()){
+				%>
+					<option value="<%= res.getInt("id")%>"><%= res.getString("nickname") %></option>
+				<%
+				} 
+				%>
 				</select>
-				<% } %>
 			</div>
 		</form>
 	</div>

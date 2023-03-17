@@ -2,7 +2,7 @@
 <%@page import="com.test.common.MysqlService"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<div class="content-list d-flex flex-wrap justify-content-between">
+<div class="content-list d-flex flex-wrap ">
 	<%
 		//DB 연결
 		MysqlService ms = MysqlService.getInstance();
